@@ -6,7 +6,7 @@ description: personal technical blog about SAP.
 logo: site-logo.png
 search: true
 url: http://labs.tiven.wang
-cdnjs: http://cdnjs.tiven.wang
+cdnjs: http://cdnjs.tiven.wang/ajax/libs
 home-url: http://tiven.wang
 
 # Jekyll configuration
