@@ -24,7 +24,7 @@ var openStreetMap = L.tileLayer(
 		attribution: 'Map data &copy; ' + mapLink + ' | AQI data &copy; ' + aqicnLink,
 		maxZoom: 18
 	}
-); 
+);
 
 var cartoDB_DarkMatter = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
@@ -51,7 +51,7 @@ var geojson = L.geoJson({"type":"FeatureCollection",
         		opacity: 0,
         		weight: 1,
         		color: 'white',
-        		fillColor: feature.properties.fillColor, 
+        		fillColor: feature.properties.fillColor,
         		fillOpacity: feature.properties.fillOpacity || 1
         	};
     	},
@@ -65,7 +65,7 @@ var geojson = L.geoJson({"type":"FeatureCollection",
                                 "<span>监测点： "+feature.properties.c.city+"</span><br>"+
                                 "<span>AQI值： </span>"+feature.properties.c.aqi+
                                 "<span style='color:"+aqiLegend.classify(feature.properties.c.aqi)+";'>▆</span><br>"+
-                             "</div>", 
+                             "</div>",
                              {autoPan: false});
         }
     }).addTo(map);
@@ -85,7 +85,7 @@ var pointLayer = L.geoJson({"type":"FeatureCollection",
                         opacity: 0,//feature.properties.opacity === undefined ? 0.3 : feature.properties.opacity,
                         weight: 1,
                         color: 'white',
-                        fillColor: feature.properties.fillColor, 
+                        fillColor: feature.properties.fillColor,
                         fillOpacity: 1
                     });
         },
@@ -94,10 +94,10 @@ var pointLayer = L.geoJson({"type":"FeatureCollection",
                                 "<span>AQI类型： "+feature.properties.city.pol+"</span><br>"+
                                 "<span>AQI值： </span>"+feature.properties.city.aqi+
                                 "<span style='color:"+aqiLegend.classify(feature.properties.city.aqi)+";'>▆</span><br>"+
-                             "</div>", 
+                             "</div>",
                              {autoPan: false, keepInView: true});
         }
-    }).addTo(map); 
+    }).addTo(map);
 
 var overlayMaps = {
     "监测点": pointLayer,
