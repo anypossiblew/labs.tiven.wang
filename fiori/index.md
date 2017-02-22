@@ -9,12 +9,20 @@ laboratory:
 projects:
   - title: "My Fiori Resume"
     description: "my resume developed using SAP Fiori"
-    page: "/fiori/"
-    previewImage: "/apps/map/images/thumbs/01.jpg"
-  - title: "Fiori App"
-    description: "App developed using SAP Fiori 2"
-    page: "app/"
-    previewImage: "/apps/map/images/thumbs/02.jpg"
+    page: "/fiori/cv"
+    previewImage: "/images/thumb-fiori-cv.jpg"
+  - title: "Baidu Map in Fiori App"
+    description: "Create Baidu Map using Leaflet.js in Fiori App"
+    page: "/fiori/cv"
+    previewImage: "/images/thumb-fiori-baidumap.jpg"
+  - title: "D3 Word Cloud plugin"
+    description: "Use Word Cloud plugin of D3.js in Fiori"
+    page: "/fiori/cv"
+    previewImage: "/images/thumb-fiori-word-cloud.jpg"
+  - title: "D3.js in Fiori App"
+    description: "Use D3.js in Fiori App"
+    page: "/fiori/cv"
+    previewImage: "/images/thumb-fiori-d3.jpg"
 ---
 
 ```javascript
