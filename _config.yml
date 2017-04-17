@@ -38,3 +38,8 @@ exclude: ["config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "t
 
 # site disqus comments enable
 comments: true
+
+# Site owner
+owner:
+  disqus-shortname: tiven-wang
+  

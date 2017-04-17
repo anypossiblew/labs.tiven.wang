@@ -106,6 +106,13 @@
 			</div>
 		</section>
 
+		<section>
+			{% if (site.owner.disqus-shortname and page.comments) or site.comments %}
+				<div id="disqus_thread"></div><!-- /#disqus_thread -->
+				{% include disqus-comments.html %}
+			{% endif %}
+		</section>
+
 	</div>
 	<!-- Footer -->
 	<footer id="footer">
