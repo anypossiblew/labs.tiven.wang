@@ -25,7 +25,7 @@ var openStreetMap = L.tileLayer(
         attribution: 'Map data &copy; ' + mapLink + ' | AQI data &copy; ' + aqicnLink,
         maxZoom: 18
     }
-); 
+);
 
 var cartoDB_DarkMatter = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
@@ -52,13 +52,13 @@ var geojson = L.geoJson({"type":"FeatureCollection",
                 opacity: .8,//feature.properties.opacity === undefined ? 0.3 : feature.properties.opacity,
                 weight: 1,
                 color: feature.properties.color,
-                fillColor: feature.properties.fillColor, 
+                fillColor: feature.properties.fillColor,
                 fillOpacity: feature.properties.fillOpacity || 0
             };
         },
         onEachFeature: function(feature, layer) {
             var content = "<div>";
-            
+
             content = content +"</div>";
 
             layer.bindPopup(content, {autoPan: false, keepInView: true});
@@ -80,7 +80,7 @@ var pointLayer = L.geoJson({"type":"FeatureCollection",
                         opacity: 0,//feature.properties.opacity === undefined ? 0.3 : feature.properties.opacity,
                         weight: 1,
                         color: 'white',
-                        fillColor: feature.properties.fillColor, 
+                        fillColor: feature.properties.fillColor,
                         fillOpacity: feature.properties.fillOpacity || 0
                     });
         },
@@ -89,10 +89,10 @@ var pointLayer = L.geoJson({"type":"FeatureCollection",
                                 "<span>AQI类型： "+feature.properties.city.pol+"</span><br>"+
                                 "<span>AQI值： </span>"+feature.properties.city.aqi+
                                 "<span style='color:"+aqiLegend.classify(feature.properties.city.aqi)+";'>▆</span><br>"+
-                             "</div>", 
+                             "</div>",
                              {autoPan: false, keepInView: true});
         }
-    }).addTo(map); 
+    }).addTo(map);
 
 var overlayMaps = {
     "监测点": pointLayer,
@@ -110,7 +110,7 @@ function onMapChanged(event) {
 
     var bounds = event.target.getBounds();
 
-    var url = "https://wind.waqi.info/mapq/bounds/?bounds=((" + bounds.getSouthWest().lat + "," + bounds.getSouthWest().lng + "),(" + bounds.getNorthEast().lat + "," + bounds.getNorthEast().lng + "))&inc=placeholders&k=_2Y2EnEh9mCVkcHT8OSCJWXmpNfEU+PSdRFWgdZg==";
+    var url = "https://api.waqi.info/mapq/bounds/?bounds=((" + bounds.getSouthWest().lat + "," + bounds.getSouthWest().lng + "),(" + bounds.getNorthEast().lat + "," + bounds.getNorthEast().lng + "))&inc=placeholders&k=_2Y2EnEh9mCVkcHT8OSCJWXmpNfEU+PSdRFWgdZg==";
 
     function sendRequest() {
         request = true;
@@ -123,7 +123,7 @@ function onMapChanged(event) {
                     pointLayer.addData(points);
                     updateHexagon();
                 }
-                
+
             }).always(function() {
                 request = false;
             });

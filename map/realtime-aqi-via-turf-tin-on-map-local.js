@@ -1,4 +1,4 @@
-define(["require", "jquery", "leaflet", "LegendControl", "AQILegend", "AQITin"], 
+define(["require", "jquery", "leaflet", "LegendControl", "AQILegend", "AQITin"],
     function(require, jqDumy, leaflet, LegendControl, AQILegend, AQITin) {
 
 var aqiLegend = new AQILegend();
@@ -114,7 +114,7 @@ var request = false;
 function onMapChanged(event) {
 	var bounds = event.target.getBounds();
 
-	var url = "https://wind.waqi.info/mapq/bounds/?bounds=((" + bounds.getSouthWest().lat + "," + bounds.getSouthWest().lng + "),(" + bounds.getNorthEast().lat + "," + bounds.getNorthEast().lng + "))&inc=placeholders&k=_2Y2EnEh9mCVkcHT8OSCJWXmpNfEU+PSdRFWgdZg==";
+	var url = "https://api.waqi.info/mapq/bounds/?bounds=((" + bounds.getSouthWest().lat + "," + bounds.getSouthWest().lng + "),(" + bounds.getNorthEast().lat + "," + bounds.getNorthEast().lng + "))&inc=placeholders&k=_2Y2EnEh9mCVkcHT8OSCJWXmpNfEU+PSdRFWgdZg==";
 
 	request = true;
 	jQuery.ajax(url).done(function( data ) {

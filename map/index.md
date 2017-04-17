@@ -21,7 +21,7 @@ projects:
     previewImage: "images/thumbs/D3.js-Voronoi-on-Map.jpg"
   - title: "Triangulated Irregular Network on Map"
     description: "Visualize the AQI to triangulated irregular network on leaflet map by 'tin' function of Turj.js."
-    page: "realtime-aqi-via-turf-tin-on-map-local.html"
+    page: "realtime-aqi-via-turf-tin-on-map.html"
     previewImage: "images/thumbs/Triangulated-Irregular-Network-on-Map.jpg"
   - title: "Visualization by Hexagon on Map"
     description: "Use hexagon to analysis the AQI on map by 'hexGrid' function of Turf.js."
@@ -49,7 +49,7 @@ This project demo implemented super cluster for big data markers on baidu map.
 ## Analysis of AQI on Map using D3.js and Turf.js
 
 * [Voronoi of D3.js](./realtime-aqi-via-d3-voronoi-on-map.html)
-* [Tin of Turf.js](./realtime-aqi-via-turf-tin-on-map-local.html)
+* [Tin of Turf.js](./realtime-aqi-via-turf-tin-on-map.html)
 * [Hex of Turf.js](./realtime-aqi-via-turf-hex-on-map.html)
 * [Isolines of Turf.js](./realtime-aqi-via-turf-isolines-on-map.html)
 
