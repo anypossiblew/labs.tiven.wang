@@ -12,6 +12,11 @@ projects:
     page: "sap-dashboard-1/"
     previewImage: "images/SAP-Dashboard-1.png"
 
+  - title: "SAP Dashboard (Material Lite)"
+    description: "Angular application which offers a Material Lite style dashboard for SAP System e.g. S4HC, SAC, BW ..."
+    page: "sap-dashboard-2/"
+    previewImage: "images/SAP-Dashboard-2.png"
+
   - title: "Todo list app"
     description: "A project which offers the Todo application implemented using MVC concept in the Angular2 framework and TypeScript development language."
     page: "todo/index.html"
