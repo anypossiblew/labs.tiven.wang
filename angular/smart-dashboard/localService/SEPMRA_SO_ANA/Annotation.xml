@@ -1,0 +1,1522 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+	<edmx:Reference Uri="/sap/bc/ui5_ui5/ui2/ushell/resources/sap/ushell/components/factsheet/vocabularies/UI.xml">
+		<edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="/sap/opu/odata/sap/SEPMRA_SO_ANA/$metadata">
+		<edmx:Include Alias="SEPMRA_SO_ANA" Namespace="SEPMRA_SO_ANA"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/cs02/vocabularies/Org.OData.Aggregation.V1.xml">
+		<edmx:Include Alias="Aggregation" Namespace="Org.OData.Aggregation.V1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/os/complete/vocabularies/Org.OData.Capabilities.V1.xml">
+		<edmx:Include Alias="Capabilities" Namespace="Org.OData.Capabilities.V1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2">
+		<edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470971/Communication.xml?api=v2">
+		<edmx:Include Alias="vCard" Namespace="com.sap.vocabularies.Communication.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/os/complete/vocabularies/Org.OData.Core.V1.xml">
+		<edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/os/complete/vocabularies/Org.OData.Measures.V1.xml">
+		<edmx:Include Alias="CQP" Namespace="Org.OData.Measures.V1"/>
+	</edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="mi.test.EPM_SalesOrder_ANA.SEPMRA_SO_ANA">
+		
+			<Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_SlsOrdItemCubeType">
+				<!-- Columns display -->
+                <Annotation Term="UI.LineItem" Qualifier="bar">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="SalesOrder"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="SalesOrderItem"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="MainProductCategory"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="SalesOrderOverallStatus"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="GrossAmount"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <!-- Smart Chart -->
+                
+                <Annotation Term="UI.Chart" Qualifier="horizontalWaterfall">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Product Category Amount"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/HorizontalWaterfall"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>DeliveryCalendarDate</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="DeliveryCalendarDate"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Series"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+                                <PropertyPath>GrossAmount</PropertyPath>
+                            </Collection>
+						</PropertyValue>
+                    </Record>
+				</Annotation>
+                <Annotation Term="UI.Chart" Qualifier="waterfall">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Product Category Amount"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Waterfall"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>DeliveryCalendarDate</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="DeliveryCalendarDate"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Series"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+                                <PropertyPath>GrossAmount</PropertyPath>
+                            </Collection>
+						</PropertyValue>
+                    </Record>
+				</Annotation>
+                <Annotation Term="UI.Chart" Qualifier="treeMap">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Product Category Amount"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/TreeMap"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>Product</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="Product"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+                                <PropertyPath>GrossAmount</PropertyPath>
+                            </Collection>
+						</PropertyValue>
+                    </Record>
+				</Annotation>
+                <Annotation Term="UI.Chart" Qualifier="heatMap">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Product Category Amount"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/HeatMap"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>ProductCategory</PropertyPath>
+                                <PropertyPath>SoldToPartyCountry</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="ProductCategory"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="SoldToPartyCountry"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category2"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+                                <PropertyPath>NumberOfSalesOrders</PropertyPath>
+                            </Collection>
+						</PropertyValue>
+                    </Record>
+				</Annotation>
+                <Annotation Term="UI.Chart" Qualifier="radar">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Product Category Amount"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Radar"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>MainProductCategory</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="MainProductCategory"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+                                <PropertyPath>NetAmount</PropertyPath>
+                                <PropertyPath>TaxAmount</PropertyPath>
+                                <PropertyPath>Quantity</PropertyPath>
+                                <PropertyPath>GrossAmount</PropertyPath>
+                                <PropertyPath>NumberOfSalesOrders</PropertyPath>
+                            </Collection>
+						</PropertyValue>
+                    </Record>
+				</Annotation>
+                <Annotation Term="UI.Chart" Qualifier="scatter">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Product Category Amount"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Scatter"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>ProductCategory</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="ProductCategory"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+                                <PropertyPath>Quantity</PropertyPath>
+                            </Collection>
+						</PropertyValue>
+                    </Record>
+				</Annotation>
+                <Annotation Term="UI.Chart" Qualifier="horizontalCombinationStacked">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Product Category Amount"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/HorizontalCombinationStacked"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>ProductCategory</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="ProductCategory"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+								<PropertyPath>NetAmount</PropertyPath>
+                                <PropertyPath>TaxAmount</PropertyPath>
+                                <PropertyPath>Quantity</PropertyPath>
+								<PropertyPath>GrossAmount</PropertyPath>
+                            </Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="GrossAmount"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+								</Record>
+								<Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="NetAmount"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis2"/>
+								</Record>
+								<Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="TaxAmount"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis2"/>
+                                </Record>
+                                <Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="Quantity"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis3"/>
+								</Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+				</Annotation>
+                <Annotation Term="UI.Chart" Qualifier="combinationStackedDual">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Product Category Amount"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/CombinationStackedDual"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>ProductCategory</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="ProductCategory"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+								<PropertyPath>NetAmount</PropertyPath>
+                                <PropertyPath>TaxAmount</PropertyPath>
+                                <PropertyPath>Quantity</PropertyPath>
+								<PropertyPath>GrossAmount</PropertyPath>
+                            </Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="GrossAmount"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+								</Record>
+								<Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="NetAmount"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis2"/>
+								</Record>
+								<Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="TaxAmount"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis2"/>
+                                </Record>
+                                <Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="Quantity"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis3"/>
+								</Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="combinationDual">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Product Category Amount"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/CombinationDual"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>ProductCategory</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="ProductCategory"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+                                <PropertyPath>NetAmount</PropertyPath>
+                                <PropertyPath>TaxAmount</PropertyPath>
+								<PropertyPath>GrossAmount</PropertyPath>
+                            </Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="GrossAmount"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+								</Record>
+								<Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="TaxAmount"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis2"/>
+                                </Record>
+                                <Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="NetAmount"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis2"/>
+								</Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="combinationStacked">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Product Category Amount"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/CombinationStacked"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>ProductCategory</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="ProductCategory"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+								<PropertyPath>NetAmount</PropertyPath>
+								<PropertyPath>TaxAmount</PropertyPath>
+								<PropertyPath>GrossAmount</PropertyPath>
+                            </Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="GrossAmount"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+								</Record>
+								<Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="NetAmount"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis2"/>
+								</Record>
+								<Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="TaxAmount"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis2"/>
+								</Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="combination">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Product Category Amount"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Combination"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>ProductCategory</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="ProductCategory"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+								<PropertyPath>NetAmount</PropertyPath>
+								<PropertyPath>GrossAmount</PropertyPath>
+                            </Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="GrossAmount"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+								</Record>
+								<Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="NetAmount"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis2"/>
+								</Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="lineDual">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Product Category Amount"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/LineDual"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>ProductCategory</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="ProductCategory"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+								<PropertyPath>NetAmount</PropertyPath>
+								<PropertyPath>TaxAmount</PropertyPath>
+								<PropertyPath>GrossAmount</PropertyPath>
+                            </Collection>
+						</PropertyValue>
+                    </Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="line">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Product Category Amount"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Line"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>ProductCategory</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="ProductCategory"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+								<PropertyPath>NetAmount</PropertyPath>
+                            </Collection>
+						</PropertyValue>
+                    </Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="horizontalAreaStacked100">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Product Category Amount"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/HorizontalAreaStacked100"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>ProductCategory</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="ProductCategory"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+								<PropertyPath>NetAmount</PropertyPath>
+								<PropertyPath>TaxAmount</PropertyPath>
+								<PropertyPath>GrossAmount</PropertyPath>
+                            </Collection>
+						</PropertyValue>
+                    </Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="horizontalAreaStacked">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Product Category Amount"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/HorizontalAreaStacked"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>ProductCategory</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="ProductCategory"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+								<PropertyPath>NetAmount</PropertyPath>
+								<PropertyPath>TaxAmount</PropertyPath>
+								<PropertyPath>GrossAmount</PropertyPath>
+                            </Collection>
+						</PropertyValue>
+                    </Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="horizontalArea">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Product Category Amount"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/HorizontalArea"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>ProductCategory</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="ProductCategory"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+								<PropertyPath>NetAmount</PropertyPath>
+                            </Collection>
+						</PropertyValue>
+                    </Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="areaStacked100">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Product Category Amount"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/AreaStacked100"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>ProductCategory</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="ProductCategory"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+								<PropertyPath>NetAmount</PropertyPath>
+								<PropertyPath>TaxAmount</PropertyPath>
+								<PropertyPath>GrossAmount</PropertyPath>
+                            </Collection>
+						</PropertyValue>
+                    </Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="areaStacked">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Product Category Amount"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/AreaStacked"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>ProductCategory</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="ProductCategory"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+								<PropertyPath>NetAmount</PropertyPath>
+								<PropertyPath>TaxAmount</PropertyPath>								
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="area">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Product Category Amount"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Area"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>ProductCategory</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+								<PropertyPath>NetAmount</PropertyPath>
+                            </Collection>
+						</PropertyValue>
+                    </Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="barStackedDual100">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Product Category Amount"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/BarStackedDual100"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>MainProductCategory</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="MainProductCategory"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+								<PropertyPath>NetAmount</PropertyPath>
+								<PropertyPath>TaxAmount</PropertyPath>
+								<PropertyPath>GrossAmount</PropertyPath>
+                            </Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="GrossAmount"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+								</Record>
+								<Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="NetAmount"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis2"/>
+								</Record>
+								<Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="TaxAmount"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis2"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="barStacked100">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Product Category Amount"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/BarStacked100"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>MainProductCategory</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="MainProductCategory"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+								<PropertyPath>NetAmount</PropertyPath>
+								<PropertyPath>TaxAmount</PropertyPath>								
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="barStackedDual">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Product Category Amount"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/BarStackedDual"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>MainProductCategory</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="MainProductCategory"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+								<PropertyPath>NetAmount</PropertyPath>
+								<PropertyPath>TaxAmount</PropertyPath>
+								<PropertyPath>GrossAmount</PropertyPath>
+                            </Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="GrossAmount"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+								</Record>
+								<Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="NetAmount"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis2"/>
+								</Record>
+								<Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="TaxAmount"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis2"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="barStacked">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Product Category NetAmount"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/BarStacked"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>MainProductCategory</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="MainProductCategory"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+								<PropertyPath>NetAmount</PropertyPath>
+								<PropertyPath>TaxAmount</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="barDual">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Product Category NetAmount"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/BarDual"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>MainProductCategory</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="MainProductCategory"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+								<PropertyPath>NetAmount</PropertyPath>
+								<PropertyPath>TaxAmount</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="bar">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Product Category NetAmount"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Bar"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>MainProductCategory</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="MainProductCategory"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+                                <PropertyPath>NetAmount</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="columnStackedDual100">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Product Category Amount"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/ColumnStackedDual100"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>MainProductCategory</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="MainProductCategory"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+								<PropertyPath>NetAmount</PropertyPath>
+								<PropertyPath>TaxAmount</PropertyPath>
+								<PropertyPath>GrossAmount</PropertyPath>
+                            </Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="GrossAmount"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+								</Record>
+								<Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="NetAmount"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis2"/>
+								</Record>
+								<Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="TaxAmount"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis2"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="columnStacked100">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Product Category Amount"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/ColumnStacked100"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>MainProductCategory</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="MainProductCategory"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+								<PropertyPath>NetAmount</PropertyPath>
+								<PropertyPath>TaxAmount</PropertyPath>								
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="columnStackedDual">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Product Category Amount"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/ColumnStackedDual"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>MainProductCategory</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="MainProductCategory"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+								<PropertyPath>NetAmount</PropertyPath>
+								<PropertyPath>TaxAmount</PropertyPath>
+								<PropertyPath>GrossAmount</PropertyPath>
+                            </Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="GrossAmount"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+								</Record>
+								<Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="NetAmount"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis2"/>
+								</Record>
+								<Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="TaxAmount"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis2"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="columnDual">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Product Category Amount"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/ColumnDual"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>MainProductCategory</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="MainProductCategory"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+								<PropertyPath>NetAmount</PropertyPath>
+								<PropertyPath>TaxAmount</PropertyPath>								
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="columnStacked">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Product Category Amount"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/ColumnStacked"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>MainProductCategory</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="MainProductCategory"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+								<PropertyPath>NetAmount</PropertyPath>
+								<PropertyPath>TaxAmount</PropertyPath>								
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="categoryChart">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Product Category NetAmount"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Pie"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>MainProductCategory</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="MainProductCategory"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+                                <PropertyPath>NetAmount</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+				</Annotation>
+				
+                <Annotation Term="UI.Chart" Qualifier="ChartAmountByProduct">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Column"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>Product</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="Product"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+                                <PropertyPath>GrossAmount</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="MeasureAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="GrossAmount"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.DataPoint" Qualifier="Amount">
+                    <Record>
+                        <PropertyValue Property="Value" Path="GrossAmount"/>
+                        <PropertyValue Property="Title" String="Gross Amount"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.PresentationVariant" Qualifier="Default">
+                    <Record>
+                        <PropertyValue Property="Text" String="KPI: Net Amount per Product"/>
+                        <PropertyValue Property="Visualizations">
+                            <Collection>
+                                <AnnotationPath>@UI.Chart#ChartAmountByProduct</AnnotationPath>
+                                <AnnotationPath>@UI.DataPoint#Amount</AnnotationPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.SelectionVariant" Qualifier="Default">
+                    <Record>
+                        <PropertyValue Property="Text" String="Default"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.SelectionPresentationVariant" Qualifier="Default">
+                    <Record>
+                        <PropertyValue Property="Text" String=""/>
+                        <PropertyValue Property="SelectionVariant" AnnotationPath="@UI.SelectionVariant#Default"/>
+                        <PropertyValue Property="PresentationVariant" AnnotationPath="@UI.PresentationVariant#Default"/>
+                    </Record>
+                </Annotation>
+                <!-- Selection Filters -->
+                <Annotation Term="UI.SelectionFields">
+					<Collection>
+						<PropertyPath>DeliveryCalendarYear</PropertyPath>
+						<PropertyPath>SoldToParty</PropertyPath>
+						<PropertyPath>Product</PropertyPath>
+						<PropertyPath>MainProductCategory</PropertyPath>
+						<PropertyPath>DeliveryCalendarQuarter</PropertyPath>
+						<PropertyPath>SalesOrderOverallStatus</PropertyPath>
+					</Collection>
+				</Annotation>
+				<!-- Visual Filters: SalesOrderOverallStatus -->
+				<Annotation Term="UI.PresentationVariant" Qualifier="FilterNumberOfSalesOrdersByStatus">
+					<Record>
+						<PropertyValue Property="Text" String="Filter: Number of Sales Ordery by Status"/>
+						<PropertyValue Property="SortOrder">
+							<Collection>
+								<Record Type="Common.SortOrderType">
+									<PropertyValue Property="Property" PropertyPath="NumberOfSalesOrders"/>
+									<PropertyValue Property="Descending" Bool="true"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Visualizations">
+							<Collection>
+								<AnnotationPath>@UI.Chart#FilterNumberOfSalesOrdersByStatus</AnnotationPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="FilterNumberOfSalesOrdersByStatus">
+					<Record Type="UI.ChartDefinitionType">
+						<PropertyValue Property="Title" String="Sales Orders by Status"/>
+						<PropertyValue Property="Description" String="Number of Sales Orders by Status"/>
+						<PropertyValue Property="ChartType" EnumMember="UI.ChartType/Donut"/>
+						<PropertyValue Property="Dimensions">
+							<Collection>
+								<PropertyPath>SalesOrderOverallStatus</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+							<Collection>
+								<Record Type="UI.ChartDimensionAttributeType">
+									<PropertyValue Property="Dimension" PropertyPath="SalesOrderOverallStatus"/>
+									<PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Measures">
+							<Collection>
+								<PropertyPath>NumberOfSalesOrders</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType">
+									<PropertyValue Property="Measure" PropertyPath="NumberOfSalesOrders"/>
+									<PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+									<PropertyValue Property="DataPoint" AnnotationPath="@UI.DataPoint#NumberOfSalesOrders"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="NumberOfSalesOrders">
+					<Record Type="com.sap.vocabularies.UI.v1.DataPointType">
+						<PropertyValue Property="Title" String="Number of Sales Orders"/>
+						<PropertyValue Property="Description" String="Number of Sales Orders"/>
+						<PropertyValue Property="Value" Path="NumberOfSalesOrders"/>
+						<PropertyValue Property="ValueFormat">
+							<Record Type="com.sap.vocabularies.UI.v1.NumberFormat">
+								<PropertyValue Property="NumberOfFractionalDigits" Int="0"/>
+							</Record>
+						</PropertyValue>
+						<PropertyValue Property="CriticalityCalculation">
+							<Record Type="com.sap.vocabularies.UI.v1.CriticalityCalculationType">
+								<PropertyValue Property="ImprovementDirection" EnumMember="UI.ImprovementDirectionType/Maximize" />
+								<PropertyValue Property="AcceptanceRangeLowValue" Int="200" />
+								<PropertyValue Property="ToleranceRangeLowValue" Int="100" />
+								<PropertyValue Property="DeviationRangeLowValue" Int="50" />
+							</Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<!-- Visual Filters: MainProductCategory -->
+				<Annotation Term="UI.PresentationVariant" Qualifier="FilterQuantityByProductCategory">
+					<Record>
+						<PropertyValue Property="Text" String="Filter: Quantity by Product Category"/>
+						<PropertyValue Property="SortOrder">
+						<Collection>
+							<Record Type="Common.SortOrderType">
+								<PropertyValue Property="Property" PropertyPath="Quantity"/>
+								<PropertyValue Property="Descending" Bool="true"/>
+							</Record>
+						</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Visualizations">
+							<Collection>
+								<AnnotationPath>@UI.Chart#FilterQuantityByProductCategory</AnnotationPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="FilterQuantityByProductCategory">
+					<Record Type="UI.ChartDefinitionType">
+						<PropertyValue Property="Title" String="Quantity by Category"/>
+						<PropertyValue Property="Description" String="Quantity by Product Category"/>
+						<PropertyValue Property="ChartType" EnumMember="UI.ChartType/Donut"/>
+						<PropertyValue Property="Dimensions">
+							<Collection>
+								<PropertyPath>MainProductCategory</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+							<Collection>
+								<Record Type="UI.ChartDimensionAttributeType">
+									<PropertyValue Property="Dimension" PropertyPath="MainProductCategory"/>
+									<PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Measures">
+							<Collection>
+								<PropertyPath>Quantity</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType">
+									<PropertyValue Property="Measure" PropertyPath="Quantity"/>
+									<PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+									<PropertyValue Property="DataPoint" AnnotationPath="@UI.DataPoint#Quantity"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="Quantity">
+					<Record Type="com.sap.vocabularies.UI.v1.DataPointType">
+						<PropertyValue Property="Title" String="Actual Quantity"/>
+						<PropertyValue Property="Description" String="Actual Quantity"/>
+						<PropertyValue Property="Value" Path="Quantity"/>
+						<PropertyValue Property="ValueFormat">
+							<Record Type="com.sap.vocabularies.UI.v1.NumberFormat">
+								<PropertyValue Property="NumberOfFractionalDigits" Int="0"/>
+							</Record>
+						</PropertyValue>
+						<PropertyValue Property="CriticalityCalculation">
+							<Record Type="com.sap.vocabularies.UI.v1.CriticalityCalculationType">
+								<PropertyValue Property="ImprovementDirection" EnumMember="UI.ImprovementDirectionType/Maximize" />
+								<PropertyValue Property="AcceptanceRangeLowValue" Int="1000" />
+								<PropertyValue Property="ToleranceRangeLowValue" Int="700" />
+								<PropertyValue Property="DeviationRangeLowValue" Int="500" />
+							</Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<!-- Key Performance Indicator Tags -->
+				<Annotation Term="UI.SelectionPresentationVariant" Qualifier="KPIQuantity">
+					<Record>
+						<PropertyValue Property="Text" String="KPI: NumberOfSalesOrders by Customer Company Name" />
+						<PropertyValue Property="SelectionVariant" Path="@UI.SelectionVariant#KPIQuantity" />
+						<PropertyValue Property="PresentationVariant" Path="@UI.PresentationVariant#KPIQuantity" />
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionVariant" Qualifier="KPIQuantity">
+					<Record>
+						<PropertyValue Property="Text" String="Default" />
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.PresentationVariant" Qualifier="KPIQuantity">
+				    <Record>
+				      <PropertyValue Property="Text" String="KPI: NumberOfSalesOrders by Customer Company Name" />
+				      <PropertyValue Property="SortOrder">
+				        <Collection>
+				          <Record Type="Common.SortOrderType">
+				            <PropertyValue Property="Property" PropertyPath="NumberOfSalesOrders" />
+				            <PropertyValue Property="Descending" Bool="true" />
+				          </Record>
+				        </Collection>
+				      </PropertyValue>
+				      <PropertyValue Property="Visualizations">
+				        <Collection>
+				          <AnnotationPath>@UI.Chart#KPIQuantity</AnnotationPath>
+				          <AnnotationPath>@UI.DataPoint#KPIQuantity</AnnotationPath>
+				        </Collection>
+				      </PropertyValue>
+				    </Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="KPIQuantity">
+					<Record Type="com.sap.vocabularies.UI.v1.DataPointType">
+						<PropertyValue Property="Title" String="Number of SalesOrders"/>
+						<PropertyValue Property="Description" String="Number of SalesOrders"/>
+						<PropertyValue Property="Value" Path="NumberOfSalesOrders"/>
+						<PropertyValue Property="ValueFormat">
+							<Record Type="com.sap.vocabularies.UI.v1.NumberFormat">
+								<PropertyValue Property="NumberOfFractionalDigits" Int="0"/>
+							</Record>
+						</PropertyValue>
+						<PropertyValue Property="CriticalityCalculation">
+							<Record Type="com.sap.vocabularies.UI.v1.CriticalityCalculationType">
+								<PropertyValue Property="ImprovementDirection" EnumMember="UI.ImprovementDirectionType/Maximize" />
+								<PropertyValue Property="AcceptanceRangeLowValue" Int="20" />
+								<PropertyValue Property="ToleranceRangeLowValue" Int="15" />
+								<PropertyValue Property="DeviationRangeLowValue" Int="10" />
+							</Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<!-- KPI Card -->
+				<Annotation Term="UI.Chart" Qualifier="KPIQuantity">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Number of SalesOrders per Company"/>
+                        <PropertyValue Property="Description" String="Number of SalesOrders per Company"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Bar"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>SoldToPartyCompanyName</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="SoldToPartyCompanyName"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+                                <PropertyPath>NumberOfSalesOrders</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="MeasureAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="NumberOfSalesOrders"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+                                    <PropertyValue Property="DataPoint" AnnotationPath="@UI.DataPoint#KPIQuantity"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            
+            <!-- Visual Filters: SalesOrderOverallStatus -->
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_SlsOrdItemCubeType/SalesOrderOverallStatus" Qualifier="VisualFilter">
+            	<Annotation Term="Common.ValueList" >
+                    <Record>
+						<PropertyValue Property="Label" String="Status"/>
+						<PropertyValue Property="CollectionPath" String="SEPMRA_C_ALP_SlsOrdItemCube"/>
+						<PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="PresentationVariantQualifier" String="FilterNumberOfSalesOrdersByStatus" />
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrder"/>
+									<PropertyValue Property="ValueListProperty" String="SalesOrder"/>
+								</Record>
+								<!--<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="MainProductCategory"/>
+									<PropertyValue Property="ValueListProperty" String="MainProductCategory"/>
+								</Record>-->
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrderOverallStatus"/>
+									<PropertyValue Property="ValueListProperty" String="SalesOrderOverallStatus"/>
+								</Record>
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="Supplier"/>
+									<PropertyValue Property="ValueListProperty" String="Supplier"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+                </Annotation>
+			</Annotations>
+			
+			<!-- Visual Filters: MainProductCategory -->
+			<Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_SlsOrdItemCubeType/MainProductCategory" Qualifier="VisualFilter2">
+            	<Annotation Term="Common.ValueList" >
+                    <Record>
+						<PropertyValue Property="Label" String="ProductCategory"/>
+						<PropertyValue Property="CollectionPath" String="SEPMRA_C_ALP_SlsOrdItemCube"/>
+						<PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="PresentationVariantQualifier" String="FilterQuantityByProductCategory" />
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="MainProductCategory"/>
+									<PropertyValue Property="ValueListProperty" String="MainProductCategory"/>
+								</Record>
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrderOverallStatus"/>
+									<PropertyValue Property="ValueListProperty" String="SalesOrderOverallStatus"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+                </Annotation>
+			</Annotations>
+            
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_SlsOrdItemCubeType/DeliveryCalendarYear">
+			    <Annotation Term="Common.FilterDefaultValue" String="2019" />
+			</Annotations>
+			
+			<!-- KPI in Title Area -->
+			<Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_TotalSalesKPIType">
+				<Annotation Term="UI.SelectionPresentationVariant" Qualifier="KPIRevenue">
+					<Record>
+						<PropertyValue Property="Text" String="KPI: Net Sales by Calendar Quarter" />
+						<PropertyValue Property="SelectionVariant" Path="@UI.SelectionVariant#KPIRevenue" />
+						<PropertyValue Property="PresentationVariant" Path="@UI.PresentationVariant#KPIRevenue" />
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionVariant" Qualifier="KPIRevenue">
+					<Record>
+						<PropertyValue Property="Text" String="Default" />
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.PresentationVariant" Qualifier="KPIRevenue">
+					<Record>
+						<PropertyValue Property="Text" String="KPI: Net Sales per Calendar Quarter" />
+						<PropertyValue Property="SortOrder">
+							<Collection>
+								<Record Type="Common.SortOrderType">
+									<PropertyValue Property="Property" PropertyPath="DeliveryCalendarYear" />
+									<PropertyValue Property="Descending" Bool="false" />
+								</Record>
+								<Record Type="Common.SortOrderType">
+									<PropertyValue Property="Property" PropertyPath="DeliveryCalendarQuarter" />
+									<PropertyValue Property="Descending" Bool="true" />
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Visualizations">
+							<Collection>
+								<AnnotationPath>@UI.Chart#KPIRevenue</AnnotationPath>
+								<AnnotationPath>@UI.DataPoint#KPIValue</AnnotationPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="KPIValue">
+					<Record>
+						<PropertyValue Property="Value" Path="KPIRevenue" />
+						<PropertyValue Property="Title" String="Sales Revenue" />
+						<PropertyValue Property="Description" String="Sales revenue in the current quarter" />
+						<PropertyValue Property="TargetValue" Path="KPIReferenceValue" />
+						<PropertyValue Property="Visualization" EnumMember="UI.VisualizationType/Number" />
+						<PropertyValue Property="ValueFormat">
+							<Record>
+								<PropertyValue Property="ScaleFactor" Decimal="1000000" />
+								<PropertyValue Property="NumberOfFractionalDigits" Int="2" />
+							</Record>
+						</PropertyValue>
+						<!--<PropertyValue Property="Criticality" EnumMember="UI.CriticalityType/Positive"/>-->
+						<PropertyValue Property="CriticalityCalculation">
+							<Record>
+								<PropertyValue Property="ImprovementDirection" EnumMember="UI.ImprovementDirectionType/Maximize" />
+								<PropertyValue Property="DeviationRangeLowValue" Path="KPIDeviationRangeLowValue" />
+								<PropertyValue Property="ToleranceRangeLowValue" Path="KPIToleranceRangeLowValue" />
+							</Record>
+						</PropertyValue>
+						<PropertyValue Property="TrendCalculation">
+							<Record>
+								<PropertyValue Property="ReferenceValue" Path="KPIReferenceValue" />
+								<PropertyValue Property="IsRelativeDifference" Bool="true" />
+								<PropertyValue Property="UpDifference" Decimal="0.1" />
+								<PropertyValue Property="StrongUpDifference" Decimal="1" />
+								<PropertyValue Property="DownDifference" Decimal="0.1" />
+								<PropertyValue Property="StrongDownDifference" Decimal="1" />
+							</Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="KPIRevenue">
+					<Record Type="UI.ChartDefinitionType">
+						<PropertyValue Property="ChartType" EnumMember="UI.ChartType/Donut"/>
+						<PropertyValue Property="Title" String="Kei"/>
+						<PropertyValue Property="Description" String="Kei desc"/>
+						<PropertyValue Property="Dimensions">
+							<Collection>
+								<PropertyPath>DeliveryCalendarQuarter</PropertyPath>
+								<PropertyPath>DeliveryCalendarYear</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="DeliveryCalendarQuarter"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="DeliveryCalendarYear"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Series"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+						<PropertyValue Property="Measures">
+							<Collection>
+								<PropertyPath>KPIRevenue</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType">
+									<PropertyValue Property="Measure" PropertyPath="KPIRevenue"/>
+									<PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+									<PropertyValue Property="DataPoint" AnnotationPath="@UI.DataPoint#KPIValue"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="KPIColumn">
+					<Record Type="UI.ChartDefinitionType">
+						<PropertyValue Property="ChartType" EnumMember="UI.ChartType/Line"/>
+						<PropertyValue Property="Title" String="Kei"/>
+						<PropertyValue Property="Description" String="Kei desc"/>
+						<PropertyValue Property="Dimensions">
+							<Collection>
+								<PropertyPath>DeliveryCalendarQuarter</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="DeliveryCalendarQuarter"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+						<PropertyValue Property="Measures">
+							<Collection>
+								<PropertyPath>KPIRevenue</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType">
+									<PropertyValue Property="Measure" PropertyPath="KPIRevenue"/>
+									<PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+									<PropertyValue Property="DataPoint" AnnotationPath="@UI.DataPoint#KPIValue"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.LineItem" Qualifier="totalKPIs">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="DeliveryCalendarQuarter"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="DeliveryCalendarQuarterT"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="KPIRevenue"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Currency"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.PresentationVariant" Qualifier="totalKPIs">
+						<Record>
+							<PropertyValue Property="Text" String="KPI: per Calendar Quarter" />
+							<PropertyValue Property="SortOrder">
+								<Collection>
+									<Record Type="Common.SortOrderType">
+										<PropertyValue Property="Property" PropertyPath="DeliveryCalendarQuarter" />
+										<PropertyValue Property="Descending" Bool="true" />
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+					</Annotation>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
